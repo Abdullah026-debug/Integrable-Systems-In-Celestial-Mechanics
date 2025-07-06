@@ -1,0 +1,140 @@
+%This style sheet can be included in your document with:
+%\usepackage{jack}
+
+%This is the style sheet of all of the packages and commands I use for almost all of my Latex documents
+
+% Preamble
+\usepackage{mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{siunitx}  % For units: \SI{400}{\kelvin}
+
+\usepackage{array}  % For tables (https://www.youtube.com/watch?v=xyZtxfMsD38&ab_channel=Dr.TreforBazett)
+\usepackage{bm}
+
+\usepackage{subcaption}  % For captions on multiple figures
+
+\usepackage{wrapfig}  % For figure wrapping
+
+% For bibtex
+%\usepackage{cite}
+\usepackage{hyperref}
+
+% NEW COMMANDS
+
+% THERMAL PHYSICS
+
+%rank 2 tensor underline
+\def\doubleunderline#1{\underline{\underline{#1}}}
+
+%vector and mod
+\def\vec#1{\underline{#1}}
+\def\mod#1{|{#1}|}
+
+%usefull tensors 
+
+\newcommand\id{\doubleunderline{\delta} }
+\newcommand\E{\doubleunderline{E} \ }
+\newcommand\Qt{\doubleunderline{Q} \ }
+
+% Def equals
+\newcommand{\defequal}{:=}
+
+% Partial derivative
+\newcommand\pd[2]{\displaystyle\frac{\partial #1}{\partial #2}}
+
+% Second partial derivative
+\newcommand\pdtwo[2]{\displaystyle\frac{\partial^2 #1}{\partial #2^2}}
+
+% one half
+\newcommand\half[0]{\displaystyle\frac{1}{2}}
+
+% one third
+\newcommand\third[0]{\displaystyle\frac{1}{3}}
+
+% one quarter
+\newcommand\quarter[0]{\displaystyle\frac{1}{4}}
+
+% exp with brackets that autosize
+\newcommand\expB[1]{\displaystyle\exp{\left( #1 \right)}}
+
+% Log with brackets that autosize
+\newcommand\LogB[1]{\displaystyle\Log{\left( #1 \right)}}
+
+% log with brackets that autosize
+\newcommand\logB[1]{\displaystyle\operatorname{log}{\left( #1 \right)}}
+
+% Arg with brackets that autosize
+\newcommand\ArgB[1]{\displaystyle\operatorname{Arg}{\left( #1 \right)}}
+
+% arg with brackets that autosize
+\newcommand\argB[1]{\displaystyle\operatorname{arg}{\left( #1 \right)}}
+
+% Total derivative
+\newcommand\td[2]{\displaystyle\frac{d #1}{d #2}} 
+
+% Hat
+\newcommand\h[1]{\displaystyle\hat{#1}}
+
+% QUANTUM MECHANICS
+
+\newcommand*{\diffeo}{% 
+  \mathrel{\vcenter{\offinterlineskip
+  \hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}\vskip-.35ex\hbox{$\sim$}}}}
+
+
+%poission bracket
+\newcommand\pb[2]{\displaystyle \left\{ #1 , #2 \right\} } 
+
+% Inner product
+\newcommand\ip[2]{\displaystyle\langle #1 | #2 \rangle}  
+
+% Outer product
+\newcommand\op[2]{\displaystyle | #1 \rangle \langle #2 |} 
+
+% Ket
+\newcommand\ket[1]{\displaystyle | #1 \rangle}
+
+ % Bra
+\newcommand\bra[1]{\displaystyle \langle #1 |} 
+
+ % Matrix element
+\newcommand\me[3]{\displaystyle \langle #1 | #2 | #3 \rangle} 
+
+ % Braket
+\newcommand\bk[2]{\displaystyle \langle #1 | #2 \rangle} 
+
+% Text commands
+\newcommand\then{\displaystyle\text{ then }}
+\newcommand\so{\displaystyle\text{ so }}
+\newcommand\thus{\displaystyle\text{ thus }}
+\newcommand\with{\displaystyle\text{ with }}
+\newcommand\fae{\displaystyle\text{for all $\varepsilon > 0$}}
+
+% Number sets
+\newcommand\N{\mathbb{N}}
+\newcommand\R{\mathbb{R}}
+\newcommand\Z{\mathbb{Z}}
+\newcommand\C{\mathbb{C}}
+\newcommand\Q{\mathbb{Q}}
+\newcommand\lamda{\text{ITS LAM\textbf{B}DA}}
+
+% Variables
+\def\e{{\hat{e}}}
+\def\n{{\vec{\nabla}}}
+\renewcommand{\epsilon}{\varepsilon}
+
+% Environments
+
+% Custom problem environment
+\newenvironment{problem}[1][]
+    {%
+        \refstepcounter{question}% Increment question counter
+        \begin{mdframed}[backgroundcolor=gray!20, needspace=3cm\baselineskip]
+        \textbf{Question \thequestion\ #1}\\%
+    }
+    {%
+        \end{mdframed}%
+    }
+
